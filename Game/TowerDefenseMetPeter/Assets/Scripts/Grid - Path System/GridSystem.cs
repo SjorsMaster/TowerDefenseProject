@@ -4,40 +4,43 @@ using UnityEngine;
 
 public class GridSystem : MonoBehaviour
 {
-    public int[,] _tiles;
+    //2D array: Grid
+    public int[,] Grid;
+    public GameObject GridTileHolder;
 
-    public float Gap = 5;
+    
 
-    public float gridWidth;
-    public float gridHeight;
+    //Grid Width & Height
+    public int gridWidth;
+    public int gridHeight;
 
     void Start()
     {
-        SetUpGrid();
-        SetUpTiles(gridWidth,gridHeight,0);
+        SetUpGrid(gridWidth,gridHeight);
+        SetUpTiles(gridWidth,gridHeight);
     }
 
-    void SetUpGrid()
+    void SetUpGrid(int _w, int _h)//How many tiles on W & H
     {
-        //_tiles = new int[,];
+        Grid = new int[_w, _h];
+        GridTileHolder = new GameObject("Tile Holder");
 
     }
 
-    void SetUpTiles(float _w, float _h, TileType _type)
+
+    void SetUpTiles(int _w, int _h)//How many tiles on W & H
     {
-        for (int i = 0; i < gridHeight; i++)//Horizontal
+        for (int i = 0; i < _w; i++)//Horizontal
         {
-            for (int j = 0; j < gridWidth; j++)//Vertical
+            for (int j = 0; j < _h; j++)//Vertical
             {
-
-                GameObject tileObject = GameObject.CreatePrimitive(PrimitiveType.Plane);
-                float tileW = tileObject.GetComponent<Renderer>().bounds.size.x;
-                float tileD = tileObject.GetComponent<Renderer>().bounds.size.z;
                 
-                
-                tileObject.transform.position = new Vector3((i * tileW) + Gap, 0, (j * tileD) + Gap);
+                //Maak een nieuwe tile op de juiste i & j positie
+                Tile newTile = new Tile(GridTileHolder, i, j);
 
             }
         }
     }
+
+    
 }

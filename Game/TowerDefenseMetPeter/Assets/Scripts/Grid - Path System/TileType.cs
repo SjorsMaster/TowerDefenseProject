@@ -1,1 +1,3 @@
-﻿public enum TileType { Blocked, Available };
+﻿public enum TileType { Grass, Path, Water, Rock }
+
+

@@ -140,6 +140,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62e9d5b5eba00da47ad48dc7cb0a2388, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  GridTileHolder: {fileID: 0}
   Gap: 5
   gridWidth: 10
   gridHeight: 10
