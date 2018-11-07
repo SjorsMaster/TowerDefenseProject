@@ -3,13 +3,17 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-//[ExecuteInEditMode]// Run this script in the editor
+[ExecuteInEditMode]// Run this script in the editor
 
 public class GridSystem : MonoBehaviour
 {
-    
+
     //2D array: Grid
-    public int[,] Grid;
+    public Tile[,] Grid;
+    //public List<Tile> Grid;
+
+
+
     public GameObject GridTileHolder;
 
     //Grid Width & Height
@@ -24,7 +28,7 @@ public class GridSystem : MonoBehaviour
 
     void SetUpGrid(int _w, int _h)//How many tiles on W & H
     {
-        Grid = new int[_w, _h];
+        //Grid = new int[_w, _h];
 
         //Create a pool for the tiles
         if (GameObject.Find("Tile Holder") == null)//if the tile holder not already exists make it (This because of the "[ExecuteInEditMode]")
@@ -47,8 +51,10 @@ public class GridSystem : MonoBehaviour
             for (int j = 0; j < _h; j++)//Vertical
             {
                 //Maak een nieuwe tile op de juiste i & j positie
-                Tile newTile = new Tile(GridTileHolder, tileCount, i, j);
-                tileCount++;
+                Tile newTile = new Tile(GridTileHolder, TileType.Noone, i, j);
+                Grid[i,j] = new Tile(GridTileHolder, TileType.Noone, i, j);
+                //Grid(i).
+                //tileCount++;
             }
         }
     }
