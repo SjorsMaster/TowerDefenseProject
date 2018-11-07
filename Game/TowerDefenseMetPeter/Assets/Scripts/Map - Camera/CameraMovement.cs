@@ -1,8 +1,20 @@
-﻿using System.Collections;
+﻿///////////////////////////////////////
+///THIS SCRIPT IS WORK IN PROGRESS!////
+///////////////////////////////////////
+
+///////////////////////////////////////////////////////
+////As the title says, This script moves the camera////
+///////////////////////////////////////////////////////
+////Nothing more to say, it executes what it's bei-////
+////ng asked. - Sjors K.                           ////
+///////////////////////////////////////////////////////
+
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CameraMovement : MonoBehaviour {
+public class CameraMovement : MonoBehaviour
+{
 
     [SerializeField]
     float MaxDistance;

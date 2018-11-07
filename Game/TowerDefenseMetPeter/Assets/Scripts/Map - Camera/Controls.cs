@@ -1,23 +1,38 @@
-﻿using System.Collections;
+﻿///////////////////////////////////////
+///THIS SCRIPT IS WORK IN PROGRESS!////
+///////////////////////////////////////
+
+////////////////////////////////////////////////////
+////This script reads the player input/ presses.////
+////////////////////////////////////////////////////
+////In here, we're looking for the mouse positi-////
+////on, and from that we'll see if its outside  ////
+////The safezone (%) of the screen, depending on////
+////that we move the position of the screen! It-////
+////'s THAT simple! Other than that we look for ////
+////other keypresses.. Nothing too special!     ////
+//// - Sjors K.                                 ////
+////////////////////////////////////////////////////
+
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-using UnityEditor;
-
-public class Controls : MonoBehaviour {
-    [SerializeField]
-    bool PercentageOrPixel;
+public class Controls : MonoBehaviour
+{
+    ///Might have to work with an ENUM in this!!
 
     [SerializeField]
     float Speed = 1;
     [SerializeField]
     float Percentage = 0.95f;
 
-    void Update () {
-        PercentageMovement();
+    void Update ()
+    {
+        Movement();
     }
 
-    void PercentageMovement()
+    void Movement()
     {
         if (Input.GetKey(KeyCode.UpArrow) && Input.mousePosition.y <= Screen.height || Input.mousePosition.y >= Screen.height * Percentage && Input.mousePosition.y <= Screen.height)
         {

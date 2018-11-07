@@ -1,16 +1,17 @@
-﻿using System.Collections;
+﻿///////////////////////////////////////
+///THIS SCRIPT IS WORK IN PROGRESS!////
+///////////////////////////////////////
+
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Shop : MonoBehaviour {
+public class Shop : MonoBehaviour
+{
+    [SerializeField]
 
-	// Use this for initialization
-	void Start () {
-		
+
+	public void Buy() {
 	}
 	
-	// Update is called once per frame
-	void Update () {
-		
-	}
 }
