@@ -21,10 +21,13 @@ public class EnemyPathFinder : MonoBehaviour {
     [SerializeField]
     List<Transform> PathList;
     int i = 0;
+    [SerializeField]
+    GameObject SpawnPosition;
 
     private void Start()
     {
-        transform.position = new Vector3(0,0,0);
+        SpawnPosition = GameObject.Find("SpawnPosition");
+        transform.position = SpawnPosition.transform.position;
     }
 
     private void Update()
@@ -34,6 +37,7 @@ public class EnemyPathFinder : MonoBehaviour {
             try
             {
                 transform.position = Vector3.MoveTowards(transform.position, PathList[i].position, .1f);
+                transform.LookAt(PathList[i]);
                 if (transform.position == PathList[i].position)
                 {
                     i++;
@@ -55,9 +59,11 @@ public class EnemyPathFinder : MonoBehaviour {
         }
         else
         {
-            i = 0;
-            Debug.Log("Warn: We're on looping mode!\n" +
-                      ">Re-counting the path now.");
+            Debug.Log("Note: End reached!\n");
+            Destroy(gameObject);
+            //i = 0;
+            //Debug.Log("Warn: We're on looping mode!\n" +
+            //          ">Re-counting the path now.");
         }
     }
 }

@@ -21,12 +21,28 @@ using UnityEngine.UI;
 
 
 public class Chat : MonoBehaviour {
+    string NickName;
+    Text ChatBoxText;
+
     private void Awake()
     {
-        
+        ChatBoxText = GameObject.Find("ChatBox").GetComponent<Text>();
+        NickName = PlayerPrefs.GetString("UserName", "Player");
     }
-    void SendMessage()
-    {
 
+    public void SendMSG(string Message)
+    {
+        string[] SplitCommand = Message.Split(' ');
+        //if (SplitCommand[1].ToLower() == "/nick")
+        if (Message.Contains("/nick"))
+        {
+            PlayerPrefs.SetString("UserName", SplitCommand[1]);
+            ChatBoxText.text = "<b>" + NickName + "</b> changed their name to: <b>" + SplitCommand[1] + "</b>.\n" + ChatBoxText.text;
+            NickName = PlayerPrefs.GetString("UserName", "Player");
+        }
+        else
+        {
+            ChatBoxText.text = "[<b>" + NickName + "</b>]: " + Message + ".\n" + ChatBoxText.text;
+        }
     }
 }

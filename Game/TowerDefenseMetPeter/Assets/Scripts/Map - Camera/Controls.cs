@@ -36,19 +36,19 @@ public class Controls : MonoBehaviour
     {
         if (Input.GetKey(KeyCode.UpArrow) && Input.mousePosition.y <= Screen.height || Input.mousePosition.y >= Screen.height * Percentage && Input.mousePosition.y <= Screen.height)
         {
-            MoveThoward("Down");
+            MoveThoward("Up");
         }
         if (Input.GetKey(KeyCode.RightArrow) && Input.mousePosition.x <= Screen.width || Input.mousePosition.x >= Screen.width * Percentage && Input.mousePosition.x <= Screen.width)
         {
-            MoveThoward("Left");
+            MoveThoward("Right");
         }
         if (Input.GetKey(KeyCode.DownArrow) && Input.mousePosition.y >= 0 || Input.mousePosition.y <= Screen.width * (-Percentage + 1) && Input.mousePosition.y >= 0)
         {
-            MoveThoward("Up");
+            MoveThoward("Down");
         }
         if (Input.GetKey(KeyCode.LeftArrow) && Input.mousePosition.x >= 0 || Input.mousePosition.x <= Screen.width * (-Percentage + 1) && Input.mousePosition.x >= 0)
         {
-            MoveThoward("Right");
+            MoveThoward("Left");
         }
     }
 
