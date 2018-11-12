@@ -10,21 +10,20 @@ public class Tile : MonoBehaviour
     public float Gap = 50;
 
     //Tile dimentions
-    public float tileW;//X
-    public float tileD;//Y
+    private float tileW, tileD;//X
 
     //2D coordinates for the visuals
-    public float xPos;
-    public float yPos;
+    private float xPos, yPos;
 
     //2D coordinates in the grid
-    public float xPosGrid;
-    public float yPosGrid;
+    private float xPosGrid, yPosGrid;
 
-    private GameObject Parent;
-    private GameObject tileObject;
+    private GameObject Parent, tileObject;
 
     public TileType tileId;
+
+    private Renderer rend;
+    public Color tileColor;
 
     /// <summary>
     /// Creates a Tile object
@@ -44,7 +43,7 @@ public class Tile : MonoBehaviour
         yPosGrid = _y;
 
         //Load the tile debug object from the recourses folder
-        GameObject tileObject = Instantiate(Resources.Load("TileDebug", typeof(GameObject))) as GameObject;
+        tileObject = Instantiate(Resources.Load("TileDebug", typeof(GameObject))) as GameObject;
 
 
         //Get the dimentions of the tile so it can be used for the positioning of the tile
@@ -71,10 +70,9 @@ public class Tile : MonoBehaviour
         AddTextToObject(tileObject, _x.ToString() + "," + _y.ToString());
     }
 
-
     private void Update()
     {
-        CheckForObjects();
+        //CheckForObjects();
     }
 
     //Check if an object is being placed on the tile
@@ -104,36 +102,41 @@ public class Tile : MonoBehaviour
     {
         //TileType randomType = (TileType)Random.Range(0, System.Enum.GetNames(typeof(TileType)).Length);//Apply a random type
 
-        Renderer renderer = _tile.GetComponent<Renderer>();
+        rend = _tile.GetComponent<Renderer>();
 
         switch (_type)
         {
             case TileType.Grass:
-                renderer.material.color = Color.green;
+                rend.material.color = Color.green;
+                tileObject.GetComponent<BuildingClass>().buildableTile = true;
                 break;
 
             case TileType.Path:
-                renderer.material.color = Color.black;
+                rend.material.color = Color.black;
                 break;
 
             case TileType.Waypoint://Waypoint where the enemys tries to go
-                renderer.material.color = Color.yellow;
+                rend.material.color = Color.yellow;
                 //Create Waypoint
                 CreateWaypoint(xPos, yPos);
                 break;
 
             case TileType.Spawnpoint://Waypoint where the enemys tries to go
-                renderer.material.color = Color.magenta;
+                rend.material.color = Color.magenta;
+                //Creates a pathfinder pointing down the grid
+                CreatePathfinderStart(xPosGrid,yPosGrid,90f);
                 break;
 
             case TileType.Rock:
-                renderer.material.color = Color.gray;
+                rend.material.color = Color.gray;
                 break;
 
             case TileType.Water:
-                renderer.material.color = Color.blue;
+                rend.material.color = Color.blue;
                 break;
         }
+
+        tileColor = rend.material.color;
 
         GiveTileName(_tile, _type);
 
@@ -183,6 +186,16 @@ public class Tile : MonoBehaviour
         WPList.Add(Waypoint);
     }
 
+    void CreatePathfinderStart(float _x, float _y, float _dir)
+    {
+        GameObject WaypointSorter = Instantiate(Resources.Load("PathfinderStart", typeof(GameObject))) as GameObject;
+        WaypointSorter.transform.position = new Vector3(_x, 4, _y);
+        WaypointSorter.transform.rotation = Quaternion.Euler(0, _dir, 0);
+
+        var sortClass = WaypointSorter.GetComponent<WaypointSortClass>();
+        //sortClass.
+    }
+
     /// <summary>
     /// Add a line from 2 vector3s
     /// </summary>
@@ -205,4 +218,8 @@ public class Tile : MonoBehaviour
 
         return Line;
     }
+
+
+
+
 }

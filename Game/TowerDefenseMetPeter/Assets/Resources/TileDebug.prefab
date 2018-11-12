@@ -111,6 +111,7 @@ GameObject:
   - component: {fileID: 33155170952195488}
   - component: {fileID: 64493291486632156}
   - component: {fileID: 23895554738160554}
+  - component: {fileID: 114897971629777082}
   m_Layer: 0
   m_Name: TileDebug
   m_TagString: Untagged
@@ -529,3 +530,15 @@ TextMesh:
   m_Color:
     serializedVersion: 2
     rgba: 3053453312
+--- !u!114 &114897971629777082
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1872567584284510}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ae27e4a7b9b30044994494e677807ba0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tileStartColor: {r: 0, g: 0, b: 0, a: 0}
