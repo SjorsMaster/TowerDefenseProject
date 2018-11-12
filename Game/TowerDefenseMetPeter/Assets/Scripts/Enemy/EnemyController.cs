@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PathFinding : MonoBehaviour {
+public class EnemyController : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
