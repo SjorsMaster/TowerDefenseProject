@@ -164,11 +164,15 @@ public class Tile : MonoBehaviour
 
         var WPList = GameObject.Find("Grid System").GetComponent<GridSystemBasic>().WaypointList;
 
+        //var WPArray = GameObject.Find("Grid System").GetComponent<GridSystemBasic>().WaypointArray;
+
+        //var d = WPArray.Length + 1;
         var d = WPList.Count + 1;
 
         //Create the object
         GameObject Waypoint = GameObject.CreatePrimitive(PrimitiveType.Sphere);
-        Waypoint.name = "Waypoint - " + d.ToString();
+
+        //Waypoint.name = "Waypoint";
 
         //Add a color to the waypoint
         Waypoint.GetComponent<Renderer>().material.color = Color.red;
@@ -181,6 +185,9 @@ public class Tile : MonoBehaviour
 
         //Add a Line
         AddALine(Waypoint.transform.position, new Vector3(_x, 0, _y));
+
+        //
+        Waypoint.name = "Waypoint" + d;
 
         //Add the waypoint to the list
         WPList.Add(Waypoint);

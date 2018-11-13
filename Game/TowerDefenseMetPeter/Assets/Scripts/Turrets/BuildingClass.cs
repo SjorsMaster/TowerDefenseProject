@@ -35,13 +35,6 @@ public class BuildingClass : MonoBehaviour
         }
     }
 
-    // Update is called once per frame
-    void Update () 
-    {
-
-
-    }
-
     void OnMouseEnter()
     {
         if (buildableTile)

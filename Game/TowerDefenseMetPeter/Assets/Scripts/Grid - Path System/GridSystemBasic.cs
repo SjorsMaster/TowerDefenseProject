@@ -16,8 +16,9 @@ public class GridSystemBasic : MonoBehaviour
     /// 1 = Water.
     /// 2 = Grass.
     /// 3 = Waypoint.
+    /// 4 = Spawnpoint.
     /// </summary>
-    public int[,] Grid = new int[10,10]
+    private int[,] Grid = new int[10,10]
     { 
         { 4, 2, 2, 3, 0, 0, 3, 2, 1, 1 },
         { 0, 2, 2, 0, 2, 2, 0, 2, 1, 1 },
@@ -32,6 +33,10 @@ public class GridSystemBasic : MonoBehaviour
     };
 
     public List<GameObject> WaypointList = new List<GameObject>();
+    //public GameObject[] WaypointArray;
+    //public int[] WaypointArray = new int[10];
+
+
     //public List<Tile> Grid;
 
 
@@ -47,8 +52,18 @@ public class GridSystemBasic : MonoBehaviour
 
     void Start()
     {
+        //for (int i = 0; i < 6; i++)
+        //{
+        //    GameObject Waypoint = new GameObject();
+        //    WaypointList.Add(Waypoint);
+        //}
+        //WaypointArray = new GameObject[10];
+        //Debug.Log(WaypointArray.Length);
+
         SetUpGrid(gridWidth,gridHeight);
         SetUpTiles(gridWidth,gridHeight);
+
+        
     }
 
     void SetUpGrid(float _w, float _h)//How many tiles on W & H
@@ -63,10 +78,18 @@ public class GridSystemBasic : MonoBehaviour
 
     }
 
-    void Update()
-    {
-        CheckTiles();
-    }
+    //void Update()
+    //{
+    //    //CheckTiles();
+
+    //    if (Input.anyKey)
+    //    {
+    //        for (int i = 0; i < WaypointList.Count; i++)
+    //        {
+    //            Debug.Log(WaypointList[i].name);
+    //        }
+    //    }
+    //}
 
     /// <summary>
     ///     Creates all the tiles in the array
@@ -124,7 +147,6 @@ public class GridSystemBasic : MonoBehaviour
 
     
 
-
     //-Test- Creating an object from resources
     void CreateFromResources()
     {
@@ -140,22 +162,22 @@ public class GridSystemBasic : MonoBehaviour
 
 /*
  * if (Grid[i - 1, j] != 0 && Grid[i - 1, j] != prevTileType)//Kijk Links in het array of er geen pad zit
-                        {
+    {
 
-                        }
+    }
 
-                        if (Grid[i + 1, j] != 0 && Grid[i + 1, j] != prevTileType)//Kijk Rechts in het array of er geen pad zit
-                        {
+    if (Grid[i + 1, j] != 0 && Grid[i + 1, j] != prevTileType)//Kijk Rechts in het array of er geen pad zit
+    {
 
-                        }
+    }
 
-                        if (Grid[i, j - 1] != 0 && Grid[i, j - 1] != prevTileType)//Kijk Boven in het array of er geen pad zit
-                        {
+    if (Grid[i, j - 1] != 0 && Grid[i, j - 1] != prevTileType)//Kijk Boven in het array of er geen pad zit
+    {
 
-                        }
+    }
 
-                        if (Grid[i, j + 1] != 0 && Grid[i, j + 1] != prevTileType)//Kijk Onder in het array of er geen pad zit
-                        {
+    if (Grid[i, j + 1] != 0 && Grid[i, j + 1] != prevTileType)//Kijk Onder in het array of er geen pad zit
+    {
 
-                        }
+    }
 */
