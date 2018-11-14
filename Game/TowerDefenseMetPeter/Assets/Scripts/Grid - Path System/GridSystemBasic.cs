@@ -113,27 +113,27 @@ public class GridSystemBasic : MonoBehaviour
                         //var prevTileType = Grid[i, j];
 
                         //Debug.Log("Type: 0");
-                        Tile newTilePath = new Tile(GridTileHolder, TileType.Path, (float)i, (float)j);
+                        Tile TilePath = new Tile(GridTileHolder, TileType.Path, (float)i, (float)j);
                         break;
 
                     case 1:
                         //Debug.Log("Type: 1");
-                        Tile newTileWater = new Tile(GridTileHolder, TileType.Water, (float)i, (float)j);
+                        Tile TileWater = new Tile(GridTileHolder, TileType.Water, (float)i, (float)j);
                         break;
 
                     case 2:
                         //Debug.Log("Type: 2");
-                        Tile newTileGrass = new Tile(GridTileHolder, TileType.Grass, (float)i, (float)j);
+                        Tile TileGrass = new Tile(GridTileHolder, TileType.Grass, (float)i, (float)j);
                         break;
 
                     case 3:
                         //Debug.Log("Type: 2");
-                        Tile newTileWaypoint = new Tile(GridTileHolder, TileType.Waypoint, (float)i, (float)j);
+                        Tile TileWaypoint = new Tile(GridTileHolder, TileType.Waypoint, (float)i, (float)j);
                         break;
 
                     case 4:
                         //Debug.Log("Type: 2");
-                        Tile newTileSpawnpoint = new Tile(GridTileHolder, TileType.Spawnpoint, (float)i, (float)j);
+                        Tile TileSpawnpoint = new Tile(GridTileHolder, TileType.Spawnpoint, (float)i, (float)j);
                         break;
                 }
             }

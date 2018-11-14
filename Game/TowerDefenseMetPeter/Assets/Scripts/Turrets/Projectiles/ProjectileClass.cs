@@ -45,6 +45,9 @@ public class ProjectileClass : MonoBehaviour
 
     void HitTarget()
     {
+        GameObject impactEffectIns = (GameObject)Instantiate(Resources.Load("Particles/BulletImpactEffect", typeof(GameObject)),transform.position, transform.rotation);
+        Destroy(impactEffectIns, 2f);
+
         Destroy(gameObject);
     }
 

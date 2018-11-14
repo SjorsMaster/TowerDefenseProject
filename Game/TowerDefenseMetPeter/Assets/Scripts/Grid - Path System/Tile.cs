@@ -50,8 +50,8 @@ public class Tile : MonoBehaviour
         tileW = tileObject.GetComponent<Renderer>().bounds.size.x;
         tileD = tileObject.GetComponent<Renderer>().bounds.size.z;
 
-        //Add visual text to the object
-        //AddTextToObject(_x + " , " + _y);
+        //Add collision box
+        tileObject.AddComponent<BoxCollider>();
 
         //Set the x / yPos to the arguments
         xPos = (_x * tileW) + Gap;
