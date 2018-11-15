@@ -26,9 +26,15 @@ public class EnemyPathFinder : MonoBehaviour {
 
     private void Start()
     {
+        for (int o = 0; o < 6; o++)
+        {
+            if (GameObject.Find("Waypoint" + i) != null)
+                PathList.Add(GameObject.Find("Waypoint" + i).transform);
+        }
         SpawnPosition = GameObject.Find("SpawnPosition");
         transform.position = SpawnPosition.transform.position;
     }
+
 
     private void Update()
     {
@@ -49,7 +55,7 @@ public class EnemyPathFinder : MonoBehaviour {
                 Debug.Log("Err: Missing waypoint!\n" +
                           ">Waypoint removed.");
             }
-            if(PathList.Count <= 1)
+            if (PathList.Count <= 1)
             {
                 Debug.Log("Err: PathList has to be greater than 1!\n" +
                           ">Initiating self destruct.");
