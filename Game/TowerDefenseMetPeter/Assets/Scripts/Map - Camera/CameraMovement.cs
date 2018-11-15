@@ -22,21 +22,36 @@ public class CameraMovement : MonoBehaviour
 
     public void MoveDirection(string Dir, float Speed)
     {
-        if(Dir == "Up")
+        if (Dir == "Up")
         {
+            if(transform.position.x > 10)
             transform.Translate(Vector3.forward * Time.deltaTime * Speed);
         }
         if (Dir == "Down")
         {
-            transform.Translate(Vector3.back * Time.deltaTime * Speed);
+            if (transform.position.x < 100)
+                transform.Translate(Vector3.back * Time.deltaTime * Speed);
         }
         if (Dir == "Left")
         {
-            transform.Translate(Vector3.left * Time.deltaTime * Speed);
+            if (transform.position.z > 0)
+                transform.Translate(Vector3.left * Time.deltaTime * Speed);
         }
         if (Dir == "Right")
         {
-            transform.Translate(Vector3.right * Time.deltaTime * Speed);
+            if (transform.position.z < 90)
+                transform.Translate(Vector3.right * Time.deltaTime * Speed);
+        }
+        if (Dir == "Zoom+")
+        {
+            if (transform.position.y > 10)
+                transform.Translate(Vector3.down * Time.deltaTime * Speed);
+        }
+        if (Dir == "Zoom-")
+        {
+            if (transform.position.y < 50)
+                transform.Translate(Vector3.up * Time.deltaTime * Speed);
         }
     }
 }
+

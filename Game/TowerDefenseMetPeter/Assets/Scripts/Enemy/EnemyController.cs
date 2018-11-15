@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyController : GridSystemBasic
+public class EnemyController : MonoBehaviour
 {
     int i = 0;
     Transform GoalPosition;

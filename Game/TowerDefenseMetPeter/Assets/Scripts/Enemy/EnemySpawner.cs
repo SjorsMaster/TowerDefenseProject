@@ -9,7 +9,6 @@ public class EnemySpawner : MonoBehaviour {
         StartCoroutine(Start());
     }
 
-
     IEnumerator Start()
     {
         for (int i = 0; i <= NextRound; i++)
@@ -19,5 +18,4 @@ public class EnemySpawner : MonoBehaviour {
         }
         NextRound += 2;
     }
-
 }
