@@ -3,23 +3,21 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class EnemySpawner : MonoBehaviour {
+    [SerializeField]
+    int NextRound = 5;
 	public void Go () {
-        for(int i = 0; i <10; i++)
-        {
-            StartCoroutine(Wait());
-            try
-            {
-                Instantiate(Resources.Load("Enemy"));
-            }
-            catch
-            {
-                Debug.LogWarning("Can't seem to find Enemy!");
-            }
-        }
+        StartCoroutine(Start());
     }
 
-    private IEnumerator Wait()
+
+    IEnumerator Start()
     {
-        yield return new WaitForSeconds(.5f);
+        for (int i = 0; i <= NextRound; i++)
+        {
+            yield return new WaitForSeconds(2f);
+            Instantiate(Resources.Load("Enemy"));
+        }
+        NextRound += 2;
     }
+
 }

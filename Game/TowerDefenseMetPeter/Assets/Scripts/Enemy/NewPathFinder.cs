@@ -3,17 +3,24 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class NewPathFinder : MonoBehaviour {
+
+    [SerializeField]
     List<Transform> Waypoints;
 
-	void Awake () {
-        for (int i = 0; i < 6; i++)
-        {
-            if(GameObject.Find("Waypoint" + i +1) != null)
-            Waypoints.Add(GameObject.Find("Waypoint" + i).transform);
-        }
-	}
+    private void Start()
+    {
+          checkPoints();
+    }
 
-	public Transform GetNextPos(int Number) {
+    void checkPoints()
+    {
+        for (int i = 1; i < 6 + 1; i++)
+        {
+              Waypoints.Add(GameObject.Find("Waypoint" + i).transform);
+        }
+    }
+
+    public Transform GetNextPos(int Number) {
         return Waypoints[Number];
 	}
 }
