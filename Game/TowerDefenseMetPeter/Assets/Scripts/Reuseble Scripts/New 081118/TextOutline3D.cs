@@ -3,6 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 
 //[ExecuteInEditMode]
+
+
+/// <summary>
+/// Bron: Internet   https://gamedev.stackexchange.com/questions/126427/draw-circle-around-gameobject-to-indicate-radius
+/// </summary>
 public class TextOutline3D : MonoBehaviour
 {
 

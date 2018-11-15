@@ -7,7 +7,7 @@ using UnityEngine.UI;
 public class Tile : MonoBehaviour
 {
     //[ExecuteInEditMode]
-    public float Gap = 50;
+    public float Gap = 0;
 
     //Tile dimentions
     private float tileW, tileD;//X
@@ -136,8 +136,9 @@ public class Tile : MonoBehaviour
                 break;
         }
 
+        //Kleurtje
         tileColor = rend.material.color;
-
+        //Naamie
         GiveTileName(_tile, _type);
 
         return _type;
