@@ -22,6 +22,7 @@ GameObject:
   - component: {fileID: 114684767858453162}
   - component: {fileID: 114477148181087494}
   - component: {fileID: 114626181295924634}
+  - component: {fileID: 114192364056440042}
   m_Layer: 0
   m_Name: EnemySpawning
   m_TagString: Untagged
@@ -42,6 +43,23 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &114192364056440042
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1717141875669170}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1742909100, guid: ed7343f30e3843b3afda8f8b02669cea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Device: 0
+  m_PoseSource: 0
+  m_PoseProviderComponent: {fileID: 0}
+  m_TrackingType: 0
+  m_UpdateType: 0
+  m_UseRelativeTransform: 1
 --- !u!114 &114477148181087494
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -77,3 +95,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: acae7b255332fc64e9efb55e61b97839, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Gold: 200
+  GoldText: {fileID: 0}
+  MainCanvas: {fileID: 0}

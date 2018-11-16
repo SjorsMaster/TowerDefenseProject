@@ -50,6 +50,14 @@ public class Controls : MonoBehaviour
         {
             MoveThoward("Left");
         }
+        if (Input.GetAxis("Mouse ScrollWheel") > 0f)
+        {
+            MoveThoward("Zoom+");
+        }
+        if (Input.GetAxis("Mouse ScrollWheel") < 0f)
+        {
+            MoveThoward("Zoom-");
+        }
     }
 
     void MoveThoward(string Direction)
