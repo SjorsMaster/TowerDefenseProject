@@ -956,11 +956,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d703417c67889d846bd0679037411b7f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  WaypointList: []
-  GridTileHolder: {fileID: 0}
-  WaypointHolder: {fileID: 0}
-  gridWidth: 10
-  gridHeight: 10
   Speed: 0.4
 --- !u!114 &114494555598163618
 MonoBehaviour:
