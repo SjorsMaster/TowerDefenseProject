@@ -24,6 +24,9 @@ public class TurretClass : MonoBehaviour
     public bool fire;
 
     [SerializeField]
+    private float Damage = 25;
+
+    [SerializeField]
     private float fireRate = 1.0f;
 
     //Projectile
@@ -91,8 +94,11 @@ public class TurretClass : MonoBehaviour
     {
         //Rotate the Turret to the enemy
         Vector3 dir = Target.position - transform.position;//Where to point
+
         Quaternion lookRotation = Quaternion.LookRotation(dir);
+
         Vector3 rotation = Quaternion.Lerp(transform.rotation, lookRotation, Time.deltaTime * rotationSpeed).eulerAngles;//Set the rotation to the new rotation over time
+
         transform.rotation = Quaternion.Euler(rotation.x, rotation.y, rotation.z);//Ik wil dit nog aanpassen zodat het de snelheid en de afspand van de enemy mee neemt
     }
     
@@ -116,6 +122,7 @@ public class TurretClass : MonoBehaviour
         if (projectile != null)
         {
             getProjectileClass.Seek(Target);
+            getProjectileClass.Damage = Damage;
         }
 
         //Wait

@@ -5,7 +5,12 @@ using UnityEngine;
 public class EnemySpawner : MonoBehaviour {
     [SerializeField]
     int NextRound = 5;
-	public void Go () {
+
+    [SerializeField]
+    string EnemyResourceLocation;
+
+	public void Go ()
+    {
         StartCoroutine(Start());
     }
 
@@ -15,7 +20,7 @@ public class EnemySpawner : MonoBehaviour {
         for (int i = 0; i <= NextRound; i++)
         {
             yield return new WaitForSeconds(2f);
-            Instantiate(Resources.Load("Enemy"));
+            Instantiate(Resources.Load(EnemyResourceLocation));
         }
         NextRound += 2;
     }

@@ -33,7 +33,7 @@ public class BuildingClass : MonoBehaviour
                 return;
             }
 
-            if (gameManager.GetComponent<GameManager>().CurrentGold() >= 100)
+            if (gameManager.GetComponent<GameManager>().GetGold() >= 100)
             {
                 //Build a turret
                 turret = Instantiate(Resources.Load("Tower", typeof(GameObject))) as GameObject;//(GameObject)Instantiate(turret, transform.position, transform.rotation);

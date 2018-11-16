@@ -15,11 +15,22 @@ public class GameManager : MonoBehaviour
 
     private GameObject Tower;
 
+    [Header("Health Related")]
+    /// <summary>
+    /// Health of the base
+    /// </summary>
+    private float Health = 100f;
+    [SerializeField]
+    private Slider HealthBar;
+    [SerializeField]
+    private Text HealthBarText;
+
 	// Use this for initialization
 	void Start ()
     {
-		
-	}
+        UpdateText(GoldText, Gold.ToString() + "c");
+        UpdateHealth();
+    }
 	
 
     public void CanPlace()
@@ -38,7 +49,7 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public float CurrentGold()
+    public float GetGold()
     {
         Debug.Log("Current gold: " + Gold);
         return Gold;
@@ -66,5 +77,50 @@ public class GameManager : MonoBehaviour
     void UpdateText(Text _text, string _string)
     {
         _text.text = _string;
+    }
+
+    /// <summary>
+    /// Gets the health of the base
+    /// </summary>
+    public float GetHealth()
+    {
+        return Health;
+    }
+
+    /// <summary>
+    /// Increases the health of the base
+    /// </summary>
+    /// <param name="_amount"></param>
+    public void IncreaseHealth(float _amount)
+    {
+        Health += _amount;
+
+        if (Health > 100)
+            Health = 100;
+
+        UpdateHealth();
+    }
+
+    /// <summary>
+    /// Decreases the health of the base
+    /// </summary>
+    /// <param name="_amount"></param>
+    public void DecreaseHealth(float _amount)
+    {
+        Health -= _amount;
+
+        if (Health < 0)
+            Health = 0;
+
+        UpdateHealth();
+    }
+
+    /// <summary>
+    /// Updates the healthbar
+    /// </summary>
+    private void UpdateHealth()
+    {
+        HealthBar.value = Health / 100;
+        HealthBarText.text = "Health: " + Mathf.Round(Health) + "%";
     }
 }

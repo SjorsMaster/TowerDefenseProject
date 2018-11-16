@@ -70,10 +70,10 @@ public class Tile : MonoBehaviour
         AddTextToObject(tileObject, _x.ToString() + "," + _y.ToString());
     }
 
-    private void Update()
-    {
-        //CheckForObjects();
-    }
+    //private void Update()
+    //{
+    //    //CheckForObjects();
+    //}
 
     //Check if an object is being placed on the tile
     void CheckForObjects()
@@ -133,6 +133,10 @@ public class Tile : MonoBehaviour
 
             case TileType.Water:
                 rend.material.color = Color.blue;
+                break;
+
+            case TileType.Noone:
+                rend.material.color = Color.white;
                 break;
         }
 

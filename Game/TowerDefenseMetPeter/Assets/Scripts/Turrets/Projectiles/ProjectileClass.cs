@@ -8,6 +8,8 @@ public class ProjectileClass : MonoBehaviour
 
     public float Speed = 70f;
 
+    public float Damage { get; set; }
+
     public void Seek(Transform _target)
     {
         Target = _target;
@@ -47,6 +49,8 @@ public class ProjectileClass : MonoBehaviour
     {
         GameObject impactEffectIns = (GameObject)Instantiate(Resources.Load("Particles/BulletImpactEffect", typeof(GameObject)),transform.position, transform.rotation);
         Destroy(impactEffectIns, 2f);
+
+        Target.GetComponent<EnemyClass>().RemoveHealth(Damage);
 
         Destroy(gameObject);
     }
